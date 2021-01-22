@@ -1,0 +1,15 @@
+html {
+    background-image: url('https://github.com/willwalker753/organizing-your-react-code/blob/master/chalkboard.jpg?raw=true');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@font-face {
+    font-family: Chalky;
+    src: url('./Chalky.woff') format("woff");
+}
+* {
+    font-family: Chalky;
+    color: #e4e1da;
+}

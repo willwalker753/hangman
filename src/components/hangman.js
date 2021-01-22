@@ -5,30 +5,30 @@ export default class hangman extends Component {
     constructor(props) {
         super(props)
         this.state = {
-             guessed: '',
-             guessedArr: [],
-             answer: '',
-             answerArr: ['-','-','-','-','-','-'],
+            hangmanImage: '.\images\hangman0.png',
+            guessed: '',
+            guessedArr: [],
+            answer: '',
+            answerArr: ['_','_','_','_','_','_'],
         }
     }
     pressKey = e => {
+        let letter = e.target.value.slice(0,1);
         if(this.state.guessedArr.length < 5) {
-            let letter = e.target.value.slice(0,1);
             this.state.guessedArr.push(letter);
             this.setState({ guessed:  this.state.guessed + ' ' + letter });      
         }
-        if(this.state.guessedArr.length === 5) {
+        else if(this.state.guessedArr.length === 5) {
             let answer = brain.findNoMatch(this.state.guessedArr);
             this.setState({ answer: answer });
+            this.state.guessedArr.push(letter);
         }
-        if(this.state.guessedArr.length >= 5) {
-            let letter = e.target.value.slice(0,1);
+        else if(this.state.guessedArr.length >= 5) { 
             this.state.guessedArr.push(letter);
             this.setState({ guessed:  this.state.guessed + ' ' + letter });
             let answerArr = brain.checkGuess(this.state.guessedArr, this.state.answer, this.state.answerArr);
             this.setState({ answerArr: answerArr })
         }
-        
         document.getElementById('letter-input').reset();
     }
     reset = e => {
@@ -37,18 +37,19 @@ export default class hangman extends Component {
             guessed: '',
             guessedArr: [],
             answer: '',
-            answerArr: ['-','-','-','-','-','-'],
+            answerArr: ['_','_','_','_','_','_'],
         });
     }
     render() {
         return (
             <div>
-                <p>{this.state.answerArr}</p>
+                <img src={this.state.hangmanImage}></img>
+                <h3 id='answer'>{this.state.answerArr}</h3>
                 <form id='letter-input'>
-                    <input type='text' onChange={this.pressKey}></input>
+                    <input type='text' placeholder='Guess here' onChange={this.pressKey}></input>
                     <button onClick={this.reset}>Reset</button>
                 </form>
-                <p>{this.state.guessed}</p>
+                <p id='guess-list'>{this.state.guessed}</p>
             </div>
         )
     }
