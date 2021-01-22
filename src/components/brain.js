@@ -1,5 +1,5 @@
 const findNoMatch = guess => {
-    const words = ['banana', 'excess', 'giggit', 'voodoo', 'pullup', 'myrrhy'];
+    const words = ['myrrhy', 'giggit', 'pullup', 'banana', 'excess', 'voodoo'];
     let word;
     for(let w=0; w<6; w++) {
         let correct = 0;

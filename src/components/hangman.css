@@ -1,7 +1,60 @@
-#answer {
-    letter-spacing: 5px;
+#guess-counter {
+    text-align: center;
+    font-size: 16px;
+}
+#top-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+#hangman-image {
+    height: 180px;
+    padding-left: 20px;
 }
 #guess-list {
     text-transform: capitalize;
     font-weight: bold;
+    padding: 0px 20px 0px 20px;
+    font-size: 20px;
+    text-align: left;
+    width: 40%;
+}
+#answer {
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 35px;
+    margin: 25px 0px 25px 0px;
+}
+#letter-input {
+    display: flex;
+    justify-content: center;
+}
+#letter-input > input {
+    background: none;
+    border: none;
+    border-bottom: 2px solid #f0eee9;
+    width: 230px;
+    font-size: 30px;
+    padding-bottom: 8px;
+    position: relative;
+    left: 20px;
+}
+#letter-input > button {
+    background: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+}
+#letter-input > button:hover {
+    cursor: pointer;
+}
+#letter-input > button > img {
+    height: 32px;
+    width: 32px;
+    position: relative;
+    right: 20px;
+
+}
+#letter-input > input:focus, #letter-input > button:focus {
+    outline: none;
 }
